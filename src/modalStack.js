@@ -195,7 +195,7 @@ class Modal {
         return () => unsubscribers.forEach((unsub) => unsub())
     }
 
-    reload = ({ only = null, except = null, method = 'get', data = null, headers = {} }) => {
+    reload = ({ only = null, except = null, method = 'get', data = null, params = null, headers = {} }) => {
         let keys = Object.keys(this.response.props)
 
         if (only) {
@@ -214,6 +214,7 @@ class Modal {
             url: this.response.url,
             method,
             data,
+            params,
             headers: {
                 ...headers,
                 Accept: 'text/html, application/xhtml+xml',
